@@ -23,6 +23,7 @@ export default function Login(){
 
     async function handleSubmit(data){
         try{
+            console.log(data)
             signIn(data);
             history.push('/')
             window.location.reload();

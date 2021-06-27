@@ -25,6 +25,7 @@ export default function Login(){
         try{
             signIn(data);
             history.push('/')
+            window.location.reload();
         }catch (err){
             alert(err.message);
         }

@@ -1,6 +1,8 @@
 import { createGlobalStyle } from 'styled-components';
+import RobotoFont from './fonts';
 
 const GlobalStyle = createGlobalStyle`
+    ${RobotoFont}
     *{
         padding: 0;
         margin: 0;
@@ -9,7 +11,6 @@ const GlobalStyle = createGlobalStyle`
     }
     html{
         font-size: 62.5%;
-        @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap');
         font-family: 'Roboto', sans-serif;
     }
 `;

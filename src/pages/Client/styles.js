@@ -28,9 +28,7 @@ export const TableChart = styled.div`
     flex-direction: column;
     align-items: center;
     .chart{
-        width: 50%;
-
-
+        width: 100%;
     }
 
     button{

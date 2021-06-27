@@ -46,14 +46,10 @@ export const TableClients = styled.div`
     width: 100%;
     ul{
         list-style-type: none;
-        &:first-child{
-            border: 2px solid #9fa0a1;
-            border-top-right-radius: 10px;
-        }      
     }
     li{
         border-bottom: 1px solid #808080 ;
-        padding: 15px;  
+        padding: 15px;
     }
     a{
         text-decoration: none;

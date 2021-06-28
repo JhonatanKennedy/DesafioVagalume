@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
 import Logo from '../../assets/logo.png';
-import { LoginPage, LoginContainer, LoginButton } from './styles';
+import { LoginPage, LoginContainer, LoginButton, ButtonContainer, InputContainer, AnimationContainer, InputPass } from './styles';
 import StyledTextField from '../../components/StyledTextField/styledTextField';
 import { Field, Form, Formik } from 'formik';
 import * as yup from 'yup';
@@ -31,38 +31,56 @@ export default function Login(){
             alert(err.message);
         }
     }
+
+    function ShowPass(){
+        const input = document.querySelector('.password')
+        
+        if(input.getAttribute('type') == 'password'){
+            input.setAttribute('type', 'text');
+        }else{
+            input.setAttribute('type','password');
+        }
+    }
     return(
         <LoginPage>
-            <LoginContainer>
-                <img src={Logo} alt='logo'/>
-                <Formik
-                    initialValues={{username:'', password: ''}}
-                    onSubmit = {data =>(handleSubmit(data))}
-                    validationSchema={validationSchema}
-                >
-                    {({ errors, touched }) => (
-                        <Form>
-                            <b>Username</b>
-                            <Field type='text' 
-                                name='username' placeholder='Admin' 
-                                as={StyledTextField}
-                            />
-                            <br/>
-                            {errors.username && touched.username && <p>{errors.username}</p>}
-                            <br/>
-                            <b>Password</b>
-                            <Field type='password' 
-                                name='password' placeholder='******'
-                                as={StyledTextField}
-                            />
-                            <br/>
-                            {errors.password && touched.password && <p>{errors.password}</p>}
-                            <br/>
-                            <LoginButton type='submit'>Entrar</LoginButton>
-                        </Form>
-                    )}
-                    </Formik>
-            </LoginContainer>
+            <AnimationContainer>
+                <LoginContainer>
+                    <img src={Logo} alt='logo'/>
+                    <Formik
+                        initialValues={{username:'', password: ''}}
+                        onSubmit = {data =>(handleSubmit(data))}
+                        validationSchema={validationSchema}
+                    >
+                        {({ errors, touched }) => (
+                            <Form>
+                                <InputContainer>
+                                    <b>Username</b>
+                                    <Field type='text' 
+                                        name='username' placeholder='Admin' 
+                                        as={StyledTextField}
+                                    />
+                                    <br/>
+                                    {errors.username && touched.username && <p>{errors.username}</p>}
+                                    <br/>
+                                    <b>Password</b>
+                                        <Field type='password' 
+                                            name='password' placeholder='******'
+                                            as={StyledTextField}
+                                            className='password'
+                                        />                                                         
+                                    <br/>
+                                    {errors.password && touched.password && <p>{errors.password}</p>}
+                                    <br/>
+                                </InputContainer>
+                                <ButtonContainer>
+                                    <LoginButton type='submit'>Entrar</LoginButton>
+                                </ButtonContainer>
+                                
+                            </Form>
+                        )}
+                        </Formik>
+                </LoginContainer>
+            </AnimationContainer>
         </LoginPage>
     )
 }

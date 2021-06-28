@@ -12,7 +12,7 @@ const Styled= withStyles({
         },
       },
 })(TextField);
-export default function StyledTextField({placeholder, ...props}){
+export default function StyledTextField({placeholder,...props}){
     return(
         <Styled placeholder={placeholder} {...props}/>
     );

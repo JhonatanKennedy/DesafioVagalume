@@ -1,5 +1,22 @@
-import styled from 'styled-components';
+import styled, { keyframes } from 'styled-components';
 import Background from '../../assets/background.jpg';
+
+const appearFromRight = keyframes`
+    from{
+        opacity: 0;
+        transform: translateX(30px);
+    }
+    to{
+        opacity: 1;
+        transform: translateX(0px);
+    }
+`;
+
+export const AnimationContainer = styled.div`
+    display: flex;
+    justify-content: center;
+    animation: ${appearFromRight} 1s;
+`;
 
 export const MainPage = styled.div`
     display: flex;
@@ -22,13 +39,12 @@ export const TableContainer = styled.div`
     margin-right: 2.4vw;
     height: 90vh;
     width: 90vw;
-    align-self: center;
+
     border-radius: 5px;
     -webkit-box-shadow: -2px -3px 15px 5px #898989; 
     box-shadow: -2px -3px 15px 5px #898989;
-
     display: flex;
-    justify-content: space-between;
+    align-self: center;
 `;
 
 export const HalfTable = styled.div`

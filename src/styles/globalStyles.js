@@ -8,10 +8,12 @@ const GlobalStyle = createGlobalStyle`
         margin: 0;
         vertical-align: baseline;
         border: 0;
+        overflow-y: hidden;
     }
     html{
         font-size: 62.5%;
         font-family: 'Roboto', sans-serif;
+        overflow-y: hidden;
     }
 `;
 

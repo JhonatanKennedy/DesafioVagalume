@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import Menu from '../../components/Menu';
-import { ClientPage, BackgroundM, TableChart, ClientInfo } from './styles';
+import { ClientPage, BackgroundM, TableChart, ClientInfo, AnimationContainer } from './styles';
 import { useParams, useHistory } from 'react-router-dom';
 import Api from '../../api/api';
 import { AiOutlineArrowLeft } from 'react-icons/ai';
@@ -33,23 +33,26 @@ export default function Client(){
             <BackgroundM>
                 <Menu/>
             </BackgroundM>
-
-            <TableChart>
-                <button onClick={() => {history.push('/')}}>
-                    <AiOutlineArrowLeft size={35}/>
-                </button>
-                <ClientInfo>
-                    <div className='iconClient'>
-                        <b>{name[0]}</b>
+            <AnimationContainer>
+                <TableChart>
+                    <button onClick={() => {history.push('/')}}>
+                        <AiOutlineArrowLeft size={35}/>
+                    </button>
+                    <ClientInfo>
+                        <div className='iconClient'>
+                            <b>{name[0]}</b>
+                        </div>
+                        <div className='nameClient'>
+                            {name} 
+                        </div>
+                    </ClientInfo>
+                    <br/>
+                    <br/>
+                    <div className = 'chart'>
+                        <NewChart row={data}/>     
                     </div>
-                    <div className='nameClient'>
-                        {name} 
-                    </div>
-                </ClientInfo>
-                <div className = 'chart'>
-                    <NewChart row={data}/>     
-                </div>
-            </TableChart>
+                </TableChart>
+            </AnimationContainer>
         </ClientPage>
     );
 }

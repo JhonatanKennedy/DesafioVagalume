@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled, { keyframes } from 'styled-components';
 import Background from '../../assets/background.jpg';
 import { BackgroundMenu } from '../Main/styles';
 
@@ -14,6 +14,25 @@ export const ClientPage = styled.div`
 
 export const BackgroundM = BackgroundMenu;
 
+const appearFromLeft = keyframes`
+    from{
+        opacity: 0;
+        transform: translateX(-30px);
+    }
+    to{
+        opacity: 1;
+        transform: translateX(0);
+    }
+`;
+
+export const AnimationContainer = styled.div`
+    animation: ${appearFromLeft} 1s;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+`;
+
+
 export const TableChart = styled.div`
     background: #ffffff;
     margin-right: 2.4vw;
@@ -27,6 +46,7 @@ export const TableChart = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
+    
     .chart{
         width: 100%;
     }

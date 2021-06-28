@@ -1,5 +1,6 @@
 import React from 'react';
 import Chart from 'react-google-charts';
+import { Loading } from './styles';
 
 
 export default function NewChart({row}){
@@ -34,11 +35,11 @@ export default function NewChart({row}){
         width='100%'
         height='300px'
         chartType="AreaChart"
-        loader={<div>Loading Chart</div>}
+        loader={<Loading><div></div></Loading>}
         rows={rows}
         columns={columns}
         options={{ 
-            colors: ['red'],
+            colors: ['#ff9900'],
             vAxes: {0: { gridlines: { color: "transparent"}} },
             vAxis:{ maxValue: max+1 },
             legend:{ position: 'none' },

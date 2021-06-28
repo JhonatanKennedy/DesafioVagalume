@@ -1,16 +1,14 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import Logo from '../../assets/logo.png';
-import { LoginPage, LoginContainer, LoginButton, ButtonContainer, InputContainer, AnimationContainer, InputPass } from './styles';
+import { LoginPage, LoginContainer, LoginButton, ButtonContainer, InputContainer, AnimationContainer } from './styles';
 import StyledTextField from '../../components/StyledTextField/styledTextField';
 import { Field, Form, Formik } from 'formik';
 import * as yup from 'yup';
-import { AuthContext } from '../../context/AuthContext';
+import Api from '../../api/api';
 import { useHistory } from 'react-router-dom';
-
 
 export default function Login(){
 
-    const { signIn } = useContext(AuthContext);
     const history = useHistory();
 
     const validationSchema = yup.object().shape({
@@ -23,24 +21,17 @@ export default function Login(){
 
     async function handleSubmit(data){
         try{
-            console.log(data)
-            signIn(data);
+            const response = await Api.post('/login', data);
+            const { token } = response.data;
+            localStorage.setItem('@Vagalume:token',token);
+
             history.push('/')
-            window.location.reload();
+            //window.location.reload();
         }catch (err){
             alert(err.message);
         }
     }
 
-    function ShowPass(){
-        const input = document.querySelector('.password')
-        
-        if(input.getAttribute('type') == 'password'){
-            input.setAttribute('type', 'text');
-        }else{
-            input.setAttribute('type','password');
-        }
-    }
     return(
         <LoginPage>
             <AnimationContainer>

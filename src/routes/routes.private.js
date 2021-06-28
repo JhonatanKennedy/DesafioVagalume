@@ -1,5 +1,5 @@
 import React from 'react';
-import { Route as Teste, Redirect } from 'react-router-dom';
+import { Route as Private, Redirect } from 'react-router-dom';
 
 
 export default function PrivateRoutes({ isPrivate = false, component: Component, ...rest}){
@@ -7,7 +7,7 @@ export default function PrivateRoutes({ isPrivate = false, component: Component,
     const token = localStorage.getItem('@Vagalume:token');
 
     return(
-        <Teste
+        <Private
         {...rest} 
         render={() => {
             return isPrivate === !!token ? (

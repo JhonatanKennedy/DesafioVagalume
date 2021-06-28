@@ -83,16 +83,6 @@ export const InputContainer = styled.div`
         width: 80%;
     }
 `;
-export const InputPass = styled.div`
-    width: 100%;
-    display: flex;
-    align-items: center;
-    button{
-        padding: 8px;
-        cursor: pointer;
-
-    }
-`;
 
 export const LoginButton = styled.button`
     color: white;

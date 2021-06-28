@@ -11,9 +11,9 @@ export default function Routes (){
     return(
         <BrowserRouter>
             <Switch>
+                <PrivateRoutes path='/Login' component={Login} />
                 <PrivateRoutes exact path='/' component={Main} isPrivate={true}/>
                 <PrivateRoutes path='/Client/:id/:name' component={Client} isPrivate={true} />
-                <PrivateRoutes path='/Login' component={Login} />
             </Switch>
         </BrowserRouter>
     );

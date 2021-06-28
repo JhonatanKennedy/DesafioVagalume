@@ -3,7 +3,7 @@ import Chart from 'react-google-charts';
 import { Loading } from './styles';
 
 
-export default function NewChart({row}){
+export default function NewChart({ row }){
     const columns = [
         {
           type: "string",
@@ -28,20 +28,20 @@ export default function NewChart({row}){
     ['Nov',row[10]],
     ['Dez',row[11]]
     ];
-    const max = Math.max(...row)
-
+    console.log(row.length)
     return(
-        <Chart
+      <>
+      {row.length === 0 && <Loading><div></div></Loading>}
+      {row.length !== 0 &&        
+      <Chart
         width='100%'
         height='300px'
         chartType="AreaChart"
-        loader={<Loading><div></div></Loading>}
         rows={rows}
         columns={columns}
         options={{ 
             colors: ['#ff9900'],
             vAxes: {0: { gridlines: { color: "transparent"}} },
-            vAxis:{ maxValue: max+1 },
             legend:{ position: 'none' },
             title: 'Uso de Wi-Fi',
             titleTextStyle:{ fontSize: 14, color: '#9fa0a1'},
@@ -51,6 +51,7 @@ export default function NewChart({row}){
               0: { lineWidth: 2 },
             },
         }}
-    />
+    />}
+      </>
     );
 }

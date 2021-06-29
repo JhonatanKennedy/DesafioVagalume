@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Logo from '../../assets/logo.png';
 import { LoginPage, LoginContainer, LoginButton, ButtonContainer, InputContainer, AnimationContainer } from './styles';
 import StyledTextField from '../../components/StyledTextField/styledTextField';
@@ -6,10 +6,13 @@ import { Field, Form, Formik } from 'formik';
 import * as yup from 'yup';
 import Api from '../../api/api';
 import { useHistory } from 'react-router-dom';
+import ErrorModal from '../../components/ErrorModal/index';
+
 
 export default function Login(){
 
     const history = useHistory();
+    const [isOpen, setIsOpen] = useState(false);
 
     const validationSchema = yup.object().shape({
         username: yup.string()
@@ -23,10 +26,13 @@ export default function Login(){
         try{
             const response = await Api.post('/login', data);
             const { token } = response.data;
-            localStorage.setItem('@Vagalume:token',token);
-
-            history.push('/')
-            //window.location.reload();
+            
+            if(response.data.success === true){
+                localStorage.setItem('@Vagalume:token',token);
+                history.push('/');
+            }else{
+                setIsOpen(true);
+            }
         }catch (err){
             alert(err.message);
         }
@@ -35,6 +41,7 @@ export default function Login(){
     return(
         <LoginPage>
             <AnimationContainer>
+                {isOpen && <ErrorModal onClose={() => {setIsOpen(false)}}/>}
                 <LoginContainer>
                     <img src={Logo} alt='logo'/>
                     <Formik

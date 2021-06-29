@@ -28,7 +28,7 @@ export default function NewChart({ row }){
     ['Nov',row[10]],
     ['Dez',row[11]]
     ];
-    console.log(row.length)
+
     return(
       <>
       {row.length === 0 && <Loading><div></div></Loading>}

@@ -46,7 +46,7 @@ export const TableChart = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
-    
+
     .chart{
         width: 100%;
     }
@@ -55,6 +55,10 @@ export const TableChart = styled.div`
         align-self: flex-start;
         border-top-left-radius: 5px;
         background-color: #ffffff;
+        padding: 5px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
         &:hover{
             background-color: #404040;
             color: #ff9900;

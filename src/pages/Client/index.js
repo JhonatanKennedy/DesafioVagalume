@@ -4,7 +4,7 @@ import { ClientPage, BackgroundM, TableChart, ClientInfo, AnimationContainer } f
 import { useParams, useHistory } from 'react-router-dom';
 import Api from '../../api/api';
 import { AiOutlineArrowLeft } from 'react-icons/ai';
-import NewChart from '../../components/Chart/chart';
+import NewChart from '../../components/Chart/index';
 
 export default function Client(){
 

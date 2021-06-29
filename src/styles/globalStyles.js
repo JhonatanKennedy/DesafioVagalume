@@ -9,6 +9,7 @@ const GlobalStyle = createGlobalStyle`
         vertical-align: baseline;
         border: 0;
         overflow-y: hidden;
+        overflow-x: hidden;
     }
     html{
         font-size: 62.5%;

@@ -32,9 +32,9 @@ export default function Login(){
                 history.push('/');
             }else{
                 setIsOpen(true);
-                setTimeout(() => {
-                    setIsOpen(false);
-                }, 4000);
+                // setTimeout(() => {
+                //     setIsOpen(false);
+                // }, 4000);
             }
         }catch (err){
             alert(err.message);
